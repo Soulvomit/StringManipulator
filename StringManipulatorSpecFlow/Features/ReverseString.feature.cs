@@ -48,7 +48,7 @@ namespace StringManipulatorSpecFlow.Features
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Reverse String", "As a user I want to input any string and get the revers string as output.", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Reverse String", "As a user I want to input any string and get the revers string displayed.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -91,12 +91,13 @@ namespace StringManipulatorSpecFlow.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void ReverseAString(string input, string reverse, string[] exampleTags)
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Reverse a string")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Reverse String")]
+        public virtual void ReverseAString()
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("input", input);
-            argumentsOfScenario.Add("reverse", reverse);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Reverse a string", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
@@ -118,93 +119,52 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "input"});
+                table2.AddRow(new string[] {
+                            "Jonas"});
+                table2.AddRow(new string[] {
+                            "1234"});
+                table2.AddRow(new string[] {
+                            "ada"});
+                table2.AddRow(new string[] {
+                            "bertram"});
+                table2.AddRow(new string[] {
+                            "linE"});
 #line 5
- testRunner.Given(string.Format("a string as {0}", input), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("a string as <input>", ((string)(null)), table2, "Given ");
 #line hidden
-#line 6
+#line 12
  testRunner.When("enter or button is pressed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 7
- testRunner.Then(string.Format("a mirrored version of the input should be displayed as {0}", reverse), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "reverse"});
+                table3.AddRow(new string[] {
+                            "sanoJ"});
+                table3.AddRow(new string[] {
+                            "4321"});
+                table3.AddRow(new string[] {
+                            "ada"});
+                table3.AddRow(new string[] {
+                            "martreb"});
+                table3.AddRow(new string[] {
+                            "Enil"});
+#line 13
+ testRunner.Then("a mirrored version of the input should be displayed in <reverse>", ((string)(null)), table3, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Reverse a string: Jonas")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Limit a string to a max number of characters")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Reverse String")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Jonas")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:input", "Jonas")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:reverse", "sanoJ")]
-        public virtual void ReverseAString_Jonas()
+        public virtual void LimitAStringToAMaxNumberOfCharacters()
         {
-#line 4
-this.ReverseAString("Jonas", "sanoJ", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Reverse a string: 1234")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Reverse String")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "1234")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:input", "1234")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:reverse", "4321")]
-        public virtual void ReverseAString_1234()
-        {
-#line 4
-this.ReverseAString("1234", "4321", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Reverse a string: ada")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Reverse String")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "ada")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:input", "ada")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:reverse", "ada")]
-        public virtual void ReverseAString_Ada()
-        {
-#line 4
-this.ReverseAString("ada", "ada", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Reverse a string: bertram")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Reverse String")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "bertram")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:input", "bertram")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:reverse", "martreb")]
-        public virtual void ReverseAString_Bertram()
-        {
-#line 4
-this.ReverseAString("bertram", "martreb", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Reverse a string: linE")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Reverse String")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "linE")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:input", "linE")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:reverse", "Enil")]
-        public virtual void ReverseAString_LinE()
-        {
-#line 4
-this.ReverseAString("linE", "Enil", ((string[])(null)));
-#line hidden
-        }
-        
-        public virtual void LimitAStringToAMaxNumberOfCharacters(string input, string char_Length, string reversed, string[] exampleTags)
-        {
-            string[] tagsOfScenario = exampleTags;
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("input", input);
-            argumentsOfScenario.Add("char_length", char_Length);
-            argumentsOfScenario.Add("reversed", reversed);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Limit a string to a max number of characters", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 16
+#line 21
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -224,87 +184,38 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 17
- testRunner.Given(string.Format("a string as {0}", input), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "char_length"});
+                table4.AddRow(new string[] {
+                            "0"});
+                table4.AddRow(new string[] {
+                            "1"});
+                table4.AddRow(new string[] {
+                            "2"});
+                table4.AddRow(new string[] {
+                            "3"});
+                table4.AddRow(new string[] {
+                            "20"});
+#line 22
+ testRunner.When("the string is above <char_length>", ((string)(null)), table4, "When ");
 #line hidden
-#line 18
- testRunner.When(string.Format("the string is above {0}", char_Length), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 19
- testRunner.Then(string.Format("a limited version of the string should be {0}", reversed), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                            "limited_reverse"});
+                table5.AddRow(new string[] {
+                            ""});
+                table5.AddRow(new string[] {
+                            "4"});
+                table5.AddRow(new string[] {
+                            "ad"});
+                table5.AddRow(new string[] {
+                            "mar"});
+                table5.AddRow(new string[] {
+                            "Enil"});
+#line 29
+ testRunner.Then("a limited version of the string should be displayed <limited_reverse>", ((string)(null)), table5, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Limit a string to a max number of characters: Jonas")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Reverse String")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Jonas")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:input", "Jonas")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:char_length", "0")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:reversed", "")]
-        public virtual void LimitAStringToAMaxNumberOfCharacters_Jonas()
-        {
-#line 16
-this.LimitAStringToAMaxNumberOfCharacters("Jonas", "0", "", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Limit a string to a max number of characters: 1234")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Reverse String")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "1234")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:input", "1234")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:char_length", "1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:reversed", "4")]
-        public virtual void LimitAStringToAMaxNumberOfCharacters_1234()
-        {
-#line 16
-this.LimitAStringToAMaxNumberOfCharacters("1234", "1", "4", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Limit a string to a max number of characters: ada")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Reverse String")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "ada")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:input", "ada")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:char_length", "2")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:reversed", "ad")]
-        public virtual void LimitAStringToAMaxNumberOfCharacters_Ada()
-        {
-#line 16
-this.LimitAStringToAMaxNumberOfCharacters("ada", "2", "ad", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Limit a string to a max number of characters: bertram")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Reverse String")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "bertram")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:input", "bertram")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:char_length", "3")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:reversed", "mar")]
-        public virtual void LimitAStringToAMaxNumberOfCharacters_Bertram()
-        {
-#line 16
-this.LimitAStringToAMaxNumberOfCharacters("bertram", "3", "mar", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Limit a string to a max number of characters: linE")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Reverse String")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "linE")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:input", "linE")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:char_length", "20")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:reversed", "Enil")]
-        public virtual void LimitAStringToAMaxNumberOfCharacters_LinE()
-        {
-#line 16
-this.LimitAStringToAMaxNumberOfCharacters("linE", "20", "Enil", ((string[])(null)));
-#line hidden
         }
     }
 }
