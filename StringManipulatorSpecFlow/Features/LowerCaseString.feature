@@ -1,9 +1,15 @@
-﻿Feature: LowerCaseString
+﻿Feature: Lowercase String
 
-A short summary of the feature
+As a user I want to input any string and get a lowercase version of the string displayed.
 
-@tag1
-Scenario: [scenario name]
-	Given [context]
-	When [action]
-	Then [outcome]
+Scenario: Lowercase a string
+	Given a string as <input>
+	When enter or button is pressed
+	Then a mirrored version of the input should be displayed as <lowercase>
+	Examples:
+	| input   | lowercase |
+	| Jonas   | jonas   |
+	| 1234    | 1234    |
+	| ada     | ada     |
+	| bertram | bertram |
+	| linE    | line    |
