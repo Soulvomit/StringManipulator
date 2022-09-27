@@ -121,31 +121,37 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                            "input",
-                            "lowercase"});
+                            "anycase"});
                 table1.AddRow(new string[] {
-                            "Jonas",
-                            "jonas"});
+                            "Jonas"});
                 table1.AddRow(new string[] {
-                            "1234",
                             "1234"});
                 table1.AddRow(new string[] {
-                            "ada",
                             "ada"});
                 table1.AddRow(new string[] {
-                            "bertram",
                             "bertram"});
                 table1.AddRow(new string[] {
-                            "linE",
-                            "lin"});
+                            "linE"});
 #line 6
- testRunner.Given("a string as <input>", ((string)(null)), table1, "Given ");
+ testRunner.Given("a string as <anycase>", ((string)(null)), table1, "Given ");
 #line hidden
 #line 13
- testRunner.When("enter or button is pressed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("enter or toLowerbutton is pressed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "lowercase"});
+                table2.AddRow(new string[] {
+                            "jonas"});
+                table2.AddRow(new string[] {
+                            "1234"});
+                table2.AddRow(new string[] {
+                            "ada"});
+                table2.AddRow(new string[] {
+                            "bertram"});
+                table2.AddRow(new string[] {
+                            "line"});
 #line 14
- testRunner.Then("a mirrored version of the input should be displayed as <lowercase>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("a mirrored version of the input should be displayed as <lowercase>", ((string)(null)), table2, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

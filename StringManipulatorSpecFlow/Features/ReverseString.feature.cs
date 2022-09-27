@@ -119,38 +119,38 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "input"});
-                table2.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "Jonas"});
-                table2.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "1234"});
-                table2.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "ada"});
-                table2.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "bertram"});
-                table2.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "linE"});
 #line 5
- testRunner.Given("a string as <input>", ((string)(null)), table2, "Given ");
+ testRunner.Given("a string as <input>", ((string)(null)), table3, "Given ");
 #line hidden
 #line 12
  testRunner.When("enter or button is pressed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                             "reverse"});
-                table3.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "sanoJ"});
-                table3.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "4321"});
-                table3.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "ada"});
-                table3.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "martreb"});
-                table3.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "Enil"});
 #line 13
- testRunner.Then("a mirrored version of the input should be displayed in <reverse>", ((string)(null)), table3, "Then ");
+ testRunner.Then("a mirrored version of the input should be displayed in <reverse>", ((string)(null)), table4, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -184,35 +184,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                             "char_length"});
-                table4.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "0"});
-                table4.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "1"});
-                table4.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "2"});
-                table4.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "3"});
-                table4.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "20"});
 #line 22
- testRunner.When("the string is above <char_length>", ((string)(null)), table4, "When ");
+ testRunner.When("the string is above <char_length>", ((string)(null)), table5, "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                             "limited_reverse"});
-                table5.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             ""});
-                table5.AddRow(new string[] {
-                            "4"});
-                table5.AddRow(new string[] {
+                table6.AddRow(new string[] {
+                            "1"});
+                table6.AddRow(new string[] {
                             "ad"});
-                table5.AddRow(new string[] {
-                            "mar"});
-                table5.AddRow(new string[] {
+                table6.AddRow(new string[] {
+                            "reb"});
+                table6.AddRow(new string[] {
                             "Enil"});
 #line 29
- testRunner.Then("a limited version of the string should be displayed <limited_reverse>", ((string)(null)), table5, "Then ");
+ testRunner.Then("a limited version of the string should be displayed <limited_reverse>", ((string)(null)), table6, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
