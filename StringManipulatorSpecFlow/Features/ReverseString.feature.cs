@@ -185,34 +185,49 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
                 TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                            "char_length"});
+                            "input_two"});
                 table5.AddRow(new string[] {
-                            "0"});
+                            "Jonas"});
                 table5.AddRow(new string[] {
-                            "1"});
+                            "1234"});
                 table5.AddRow(new string[] {
-                            "2"});
+                            "ada"});
                 table5.AddRow(new string[] {
-                            "3"});
+                            "bertram"});
                 table5.AddRow(new string[] {
-                            "20"});
+                            "linE"});
 #line 22
- testRunner.When("the string is above <char_length>", ((string)(null)), table5, "When ");
+ testRunner.Given("a string as <input_two>", ((string)(null)), table5, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                            "limited_reverse"});
+                            "char_length"});
                 table6.AddRow(new string[] {
-                            ""});
+                            "0"});
                 table6.AddRow(new string[] {
                             "1"});
                 table6.AddRow(new string[] {
-                            "ad"});
+                            "2"});
                 table6.AddRow(new string[] {
-                            "reb"});
+                            "3"});
                 table6.AddRow(new string[] {
-                            "Enil"});
+                            "20"});
 #line 29
- testRunner.Then("a limited version of the string should be displayed <limited_reverse>", ((string)(null)), table6, "Then ");
+ testRunner.When("the string is above <char_length>", ((string)(null)), table6, "When ");
+#line hidden
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                            "limited_reverse"});
+                table7.AddRow(new string[] {
+                            ""});
+                table7.AddRow(new string[] {
+                            "1"});
+                table7.AddRow(new string[] {
+                            "da"});
+                table7.AddRow(new string[] {
+                            "reb"});
+                table7.AddRow(new string[] {
+                            "Enil"});
+#line 36
+ testRunner.Then("a limited version of the string should be displayed <limited_reverse>", ((string)(null)), table7, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -120,38 +120,38 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                             "somecase"});
-                table7.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "Jonas"});
-                table7.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "1234"});
-                table7.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "ada"});
-                table7.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "bertram"});
-                table7.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "linE"});
 #line 6
- testRunner.Given("a string as <somecase>", ((string)(null)), table7, "Given ");
+ testRunner.Given("a string as <somecase>", ((string)(null)), table8, "Given ");
 #line hidden
 #line 13
  testRunner.When("enter or toUpperButton is pressed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                             "uppercase"});
-                table8.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "JONAS"});
-                table8.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "1234"});
-                table8.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "ADA"});
-                table8.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "BERTRAM"});
-                table8.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "LINE"});
 #line 14
- testRunner.Then("a mirrored version of the input should be displayed as <uppercase>", ((string)(null)), table8, "Then ");
+ testRunner.Then("a mirrored version of the input should be displayed as <uppercase>", ((string)(null)), table9, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

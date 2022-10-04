@@ -19,6 +19,13 @@ Scenario: Reverse a string
 	| Enil    |
 
 Scenario: Limit a string to a max number of characters
+	Given a string as <input_two>
+	| input_two |
+	| Jonas		|
+	| 1234		|
+	| ada		|
+	| bertram	|
+	| linE		|
 	When the string is above <char_length>
 	| char_length |
 	| 0           |
@@ -30,6 +37,18 @@ Scenario: Limit a string to a max number of characters
 	| limited_reverse |
 	|			      |
 	| 1			      |
-	| ad              |
+	| da              |
 	| reb		      |
 	| Enil            |
+
+#Scenario Outline: Reverse a string
+#	Given a string as <input>
+#	When enter or button is pressed
+#	Then a mirrored version of the input should be displayed in <reverse>
+#Examples: 
+#		| input   | reverse |
+#		| Jonas   | sanoJ   |
+#		| 1234    | 4321    |
+#		| ada     | ada     |
+#		| bertram | martreb |
+#		| linE    | Enil    |

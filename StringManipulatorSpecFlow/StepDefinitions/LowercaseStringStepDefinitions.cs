@@ -1,3 +1,4 @@
+using StringManipulatorLib;
 using System;
 using TechTalk.SpecFlow;
 
@@ -31,19 +32,31 @@ namespace StringManipulatorSpecFlow.StepDefinitions
         public void ThenAMirroredVersionOfTheInputShouldBeDisplayedAsLowercase(Table table)
         {
             output = table;
+            string[] inputs = new string[5];
+            string[] outupts = new string[5];
+
             if (input != null)
             {
                 Console.WriteLine("INPUT:");
                 for (int i = 0; i < input.RowCount; i++)
                 {
                     Console.WriteLine(input.Rows[i]["anycase"]);
+                    inputs[i] = input.Rows[i]["anycase"];
                 }
                 Console.WriteLine("OUTPUT:");
                 for (int i = 0; i < output.RowCount; i++)
                 {
                     Console.WriteLine(output.Rows[i]["lowercase"]);
+                    outupts[i] = output.Rows[i]["lowercase"];
+                }
+                for (int i = 0; i < inputs.Length; i++)
+                {
+                    string toLower = StringManipulator.ToLower(inputs[i]);
+                    Assert.AreEqual(toLower, outupts[i]);
                 }
             }
+            else
+                Assert.Fail();
         }
     }
 }
