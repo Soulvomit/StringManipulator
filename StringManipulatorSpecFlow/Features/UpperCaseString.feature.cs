@@ -20,7 +20,7 @@ namespace StringManipulatorSpecFlow.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class UppercaseStringFeature
+    public partial class UppercaseFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -48,7 +48,7 @@ namespace StringManipulatorSpecFlow.Features
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Uppercase String", "As a user I want to input any string and get a uppercase version of the string di" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Uppercase", "As a user I want to input any string and get a uppercase version of the string di" +
                     "splayed.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -64,9 +64,9 @@ namespace StringManipulatorSpecFlow.Features
         public virtual void TestInitialize()
         {
             if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Title != "Uppercase String")))
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "Uppercase")))
             {
-                global::StringManipulatorSpecFlow.Features.UppercaseStringFeature.FeatureSetup(null);
+                global::StringManipulatorSpecFlow.Features.UppercaseFeature.FeatureSetup(null);
             }
         }
         
@@ -92,15 +92,14 @@ namespace StringManipulatorSpecFlow.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Uppercase a string")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Uppercase String")]
-        public virtual void UppercaseAString()
+        public virtual void UppercaseAString(string anycase, string uppercase, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("anycase", anycase);
+            argumentsOfScenario.Add("uppercase", uppercase);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Uppercase a string", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 5
+#line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -121,40 +120,89 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
                 TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
-                            "somecase"});
+                            "anycase"});
                 table8.AddRow(new string[] {
-                            "Jonas"});
-                table8.AddRow(new string[] {
-                            "1234"});
-                table8.AddRow(new string[] {
-                            "ada"});
-                table8.AddRow(new string[] {
-                            "bertram"});
-                table8.AddRow(new string[] {
-                            "linE"});
-#line 6
- testRunner.Given("a string as <somecase>", ((string)(null)), table8, "Given ");
+                            string.Format("{0}", anycase)});
+#line 5
+ testRunner.Given("a input string", ((string)(null)), table8, "Given ");
 #line hidden
-#line 13
+#line 8
  testRunner.When("enter or toUpperButton is pressed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                             "uppercase"});
                 table9.AddRow(new string[] {
-                            "JONAS"});
-                table9.AddRow(new string[] {
-                            "1234"});
-                table9.AddRow(new string[] {
-                            "ADA"});
-                table9.AddRow(new string[] {
-                            "BERTRAM"});
-                table9.AddRow(new string[] {
-                            "LINE"});
-#line 14
- testRunner.Then("a mirrored version of the input should be displayed as <uppercase>", ((string)(null)), table9, "Then ");
+                            string.Format("{0}", uppercase)});
+#line 9
+ testRunner.Then("a uppercase version of the input should be displayed", ((string)(null)), table9, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Uppercase a string: Jonas")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Uppercase")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Jonas")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:anycase", "Jonas")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:uppercase", "JONAS")]
+        public virtual void UppercaseAString_Jonas()
+        {
+#line 4
+this.UppercaseAString("Jonas", "JONAS", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Uppercase a string: 1234")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Uppercase")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "1234")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:anycase", "1234")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:uppercase", "1234")]
+        public virtual void UppercaseAString_1234()
+        {
+#line 4
+this.UppercaseAString("1234", "1234", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Uppercase a string: ada")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Uppercase")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "ada")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:anycase", "ada")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:uppercase", "ADA")]
+        public virtual void UppercaseAString_Ada()
+        {
+#line 4
+this.UppercaseAString("ada", "ADA", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Uppercase a string: bertram")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Uppercase")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "bertram")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:anycase", "bertram")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:uppercase", "BERTRAM")]
+        public virtual void UppercaseAString_Bertram()
+        {
+#line 4
+this.UppercaseAString("bertram", "BERTRAM", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Uppercase a string: linE")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Uppercase")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "linE")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:anycase", "linE")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:uppercase", "LINE")]
+        public virtual void UppercaseAString_LinE()
+        {
+#line 4
+this.UppercaseAString("linE", "LINE", ((string[])(null)));
+#line hidden
         }
     }
 }

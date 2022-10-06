@@ -8,120 +8,62 @@ namespace StringManipulatorSpecFlow.StepDefinitions
     public class ReverseStringStepDefinitions
     {
         private Table? input = null;
-        private Table? input_two = null;
         private Table? output = null;
-        private Table? char_length = null;
-        private Table? limited_reverse = null;
+        private Table? maxChars = null;
 
-        [Given(@"a string as <input>")]
-        public void GivenAStringAsInput(Table table)
+        [Given(@"a string")]
+        public void GivenAString(Table table)
         {
             input = table;
-
-            Console.WriteLine("INPUT:");
-            for (int i = 0; i < input.RowCount; i++)
-            {
-                Console.WriteLine(input.Rows[i]["input"]);
-            }
+            Assert.AreEqual(1, input.RowCount);
         }
 
         [When(@"enter or button is pressed")]
         public void WhenEnterOrButtonIsPressed()
         {
-            Console.WriteLine("enter or reverseButton is pressed");
+            Console.WriteLine("Enter or reverse Button was pressed...");
         }
 
-        [Then(@"a mirrored version of the input should be displayed in <reverse>")]
-        public void ThenAMirroredVersionOfTheInputShouldBeDisplayedInReverse(Table table)
+        [Then(@"a mirrored version of the input should be displayed")]
+        public void ThenAMirroredVersionOfTheInputShouldBeDisplayed(Table table)
         {
             output = table;
-            string[] inputs = new string[5];
-            string[] outupts = new string[5];
+            Assert.AreEqual(1, output.RowCount);
 
             if (input != null)
             {
-                Console.WriteLine("INPUT:");
-                for (int i = 0; i < input.RowCount; i++)
-                {
-                    Console.WriteLine(input.Rows[i]["input"]);
-                    inputs[i] = input.Rows[i]["input"];
-                }
-                Console.WriteLine("OUTPUT:");
-                for (int i = 0; i < output.RowCount; i++)
-                {
-                    Console.WriteLine(output.Rows[i]["reverse"]);
-                    outupts[i] = output.Rows[i]["reverse"];
-                }
-                for (int i = 0; i < inputs.Length; i++)
-                {
-                    string reversed = StringManipulator.ReverseString(inputs[i]);
-                    Assert.AreEqual(reversed, outupts[i]);
-                }
+                string reversed = StringManipulator.ReverseString(input.Rows[0]["input"]);
+                Assert.AreEqual(reversed, output.Rows[0]["reversed"]);
             }
             else
+            {
                 Assert.Fail();
-        }
-
-        [Given(@"a string as <input_two>")]
-        public void GivenAStringAsInput_Two(Table table)
-        {
-            input_two = table;
-
-            Console.WriteLine("INPUT:");
-            for (int i = 0; i < input_two.RowCount; i++)
-            {
-                Console.WriteLine(input_two.Rows[i]["input_two"]);
             }
         }
 
-        [When(@"the string is above <char_length>")]
-        public void WhenTheStringIsAboveChar_Length(Table table)
+        [When(@"the string is above character limit")]
+        public void WhenTheStringIsAboveCharacterLimit(Table table)
         {
-            char_length = table;
-
-            Console.WriteLine("INPUT:");
-            for (int i = 0; i < char_length.RowCount; i++)
-            {
-                Console.WriteLine(char_length.Rows[i]["char_length"]);
-            }
+            maxChars = table;
+            Assert.AreEqual(1, maxChars.RowCount);
         }
 
-        [Then(@"a limited version of the string should be displayed <limited_reverse>")]
-        public void ThenALimitedVersionOfTheStringShouldBeDisplayedLimited_Reverse(Table table)
+        [Then(@"a limited and mirrored version of the string should be displayed")]
+        public void ThenALimitedAndMirroredVersionOfTheStringShouldBeDisplayed(Table table)
         {
-            limited_reverse = table;
-            string[] inputs = new string[5];
-            string[] lengths = new string[5];
-            string[] outupts = new string[5];
+            output = table;
+            Assert.AreEqual(1, output.RowCount);
 
-            if (input_two != null && char_length != null)
+            if (input != null && maxChars != null)
             {
-                Console.WriteLine("INPUT:");
-                for (int i = 0; i < input_two.RowCount; i++)
-                {
-                    Console.WriteLine(input_two.Rows[i]["input_two"]);
-                    inputs[i] = input_two.Rows[i]["input_two"];
-                }
-                Console.WriteLine("CHAR_LENGTH:");
-                for (int i = 0; i < char_length.RowCount; i++)
-                {
-                    Console.WriteLine(char_length.Rows[i]["char_length"]);
-                    lengths[i] = char_length.Rows[i]["char_length"];
-                }
-                Console.WriteLine("OUTPUT:");
-                for (int i = 0; i < limited_reverse.RowCount; i++)
-                {
-                    Console.WriteLine(limited_reverse.Rows[i]["limited_reverse"]);
-                    outupts[i] = limited_reverse.Rows[i]["limited_reverse"];
-                }
-                for (int i = 0; i < inputs.Length; i++)
-                {
-                    string reversed = StringManipulator.ReverseString(inputs[i], byte.Parse(char_length.Rows[i]["char_length"]));
-                    Assert.AreEqual(reversed, outupts[i]);
-                }
+                string limited_reversed = 
+                    StringManipulator.ReverseString(input.Rows[0]["input"], byte.Parse(maxChars.Rows[0]["char_length"]));
+                Assert.AreEqual(limited_reversed, output.Rows[0]["limited_reversed"]);
             }
             else
+            {
                 Assert.Fail();
+            }
         }
     }
 }

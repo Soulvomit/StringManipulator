@@ -2,7 +2,14 @@
 {
     public class StringManipulator
     {
-        public static string ReverseString(string input, byte charLenght = 255)
+        #region ReverseString
+        /// <summary>
+        /// Reverses/mirrors a given string. If the string is longer the charLength it will be cut before reversing.
+        /// </summary>
+        /// <param name="input">String to reverse/mirror.</param>
+        /// <param name="charLenght">Maximum allowed length of string. Defaults to byte.MaxValue.</param>
+        /// <returns>The reversed/mirrored string.</returns>
+        public static string ReverseString(string input, byte charLenght = byte.MaxValue)
         { 
             char[] stringArray = input.ToCharArray()
                                         .Take(charLenght)
@@ -17,7 +24,14 @@
 
             return reversed_limited;
         }
+        #endregion
 
+        #region ToLowerUpperCase
+        /// <summary>
+        /// Converts english alphabet to lower case.
+        /// </summary>
+        /// <param name="input">String to lower case.</param>
+        /// <returns>Lower cased version on the input.</returns>
         public static string ToLower(string input) 
         {
             String output = "";
@@ -32,6 +46,11 @@
             }
             return output;
         }
+        /// <summary>
+        /// Converts english alphabet to upper case.
+        /// </summary>
+        /// <param name="input">String to upper case.</param>
+        /// <returns>Upper cased version on the input.</returns>
         public static string ToUpper(string input) 
         {
             String output = "";
@@ -46,5 +65,6 @@
             }
             return output;
         }
+        #endregion
     }
 }

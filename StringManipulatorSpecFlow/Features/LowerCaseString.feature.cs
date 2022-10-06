@@ -20,7 +20,7 @@ namespace StringManipulatorSpecFlow.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class LowercaseStringFeature
+    public partial class LowercaseFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -48,7 +48,7 @@ namespace StringManipulatorSpecFlow.Features
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Lowercase String", "As a user I want to input any string and get a lowercase version of the string di" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Lowercase", "As a user I want to input any string and get a lowercase version of the string di" +
                     "splayed.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -64,9 +64,9 @@ namespace StringManipulatorSpecFlow.Features
         public virtual void TestInitialize()
         {
             if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Title != "Lowercase String")))
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "Lowercase")))
             {
-                global::StringManipulatorSpecFlow.Features.LowercaseStringFeature.FeatureSetup(null);
+                global::StringManipulatorSpecFlow.Features.LowercaseFeature.FeatureSetup(null);
             }
         }
         
@@ -92,15 +92,14 @@ namespace StringManipulatorSpecFlow.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Lowercase a string")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Lowercase String")]
-        public virtual void LowercaseAString()
+        public virtual void LowercaseAString(string anycase, string lowercase, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("anycase", anycase);
+            argumentsOfScenario.Add("lowercase", lowercase);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Lowercase a string", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 5
+#line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -123,38 +122,87 @@ this.ScenarioInitialize(scenarioInfo);
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "anycase"});
                 table1.AddRow(new string[] {
-                            "Jonas"});
-                table1.AddRow(new string[] {
-                            "1234"});
-                table1.AddRow(new string[] {
-                            "ada"});
-                table1.AddRow(new string[] {
-                            "bertram"});
-                table1.AddRow(new string[] {
-                            "linE"});
-#line 6
- testRunner.Given("a string as <anycase>", ((string)(null)), table1, "Given ");
+                            string.Format("{0}", anycase)});
+#line 5
+ testRunner.Given("a input string", ((string)(null)), table1, "Given ");
 #line hidden
-#line 13
+#line 8
  testRunner.When("enter or toLowerbutton is pressed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "lowercase"});
                 table2.AddRow(new string[] {
-                            "jonas"});
-                table2.AddRow(new string[] {
-                            "1234"});
-                table2.AddRow(new string[] {
-                            "ada"});
-                table2.AddRow(new string[] {
-                            "bertram"});
-                table2.AddRow(new string[] {
-                            "line"});
-#line 14
- testRunner.Then("a mirrored version of the input should be displayed as <lowercase>", ((string)(null)), table2, "Then ");
+                            string.Format("{0}", lowercase)});
+#line 9
+ testRunner.Then("a lowercase version of the input should be displayed", ((string)(null)), table2, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Lowercase a string: Jonas")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Lowercase")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Jonas")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:anycase", "Jonas")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:lowercase", "jonas")]
+        public virtual void LowercaseAString_Jonas()
+        {
+#line 4
+this.LowercaseAString("Jonas", "jonas", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Lowercase a string: 1234")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Lowercase")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "1234")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:anycase", "1234")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:lowercase", "1234")]
+        public virtual void LowercaseAString_1234()
+        {
+#line 4
+this.LowercaseAString("1234", "1234", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Lowercase a string: ada")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Lowercase")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "ada")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:anycase", "ada")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:lowercase", "ada")]
+        public virtual void LowercaseAString_Ada()
+        {
+#line 4
+this.LowercaseAString("ada", "ada", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Lowercase a string: bertram")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Lowercase")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "bertram")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:anycase", "bertram")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:lowercase", "bertram")]
+        public virtual void LowercaseAString_Bertram()
+        {
+#line 4
+this.LowercaseAString("bertram", "bertram", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Lowercase a string: linE")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Lowercase")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "linE")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:anycase", "linE")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:lowercase", "line")]
+        public virtual void LowercaseAString_LinE()
+        {
+#line 4
+this.LowercaseAString("linE", "line", ((string[])(null)));
+#line hidden
         }
     }
 }

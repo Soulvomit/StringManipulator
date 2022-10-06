@@ -10,53 +10,34 @@ namespace StringManipulatorSpecFlow.StepDefinitions
         private Table? input = null;
         private Table? output = null;
 
-        [Given(@"a string as <anycase>")]
-        public void GivenAStringAsAnycase(Table table)
+        [Given(@"a input string"), Scope(Feature = "Lowercase")]
+        public void GivenAInputString(Table table)
         {
             input = table;
-
-            Console.WriteLine("INPUT:");
-            for (int i = 0; i < input.RowCount; i++)
-            {
-                Console.WriteLine(input.Rows[i]["anycase"]);
-            }
+            Assert.AreEqual(1, input.RowCount);
         }
 
         [When(@"enter or toLowerbutton is pressed")]
         public void WhenEnterOrToLowerbuttonIsPressed()
         {
-            Console.WriteLine("enter or toLowerButton is pressed");
+            Console.WriteLine("Enter or toLower Button was pressed...");
         }
 
-        [Then(@"a mirrored version of the input should be displayed as <lowercase>")]
-        public void ThenAMirroredVersionOfTheInputShouldBeDisplayedAsLowercase(Table table)
+        [Then(@"a lowercase version of the input should be displayed")]
+        public void ThenALowercaseVersionOfTheInputShouldBeDisplayed(Table table)
         {
             output = table;
-            string[] inputs = new string[5];
-            string[] outupts = new string[5];
+            Assert.AreEqual(1, output.RowCount);
 
             if (input != null)
             {
-                Console.WriteLine("INPUT:");
-                for (int i = 0; i < input.RowCount; i++)
-                {
-                    Console.WriteLine(input.Rows[i]["anycase"]);
-                    inputs[i] = input.Rows[i]["anycase"];
-                }
-                Console.WriteLine("OUTPUT:");
-                for (int i = 0; i < output.RowCount; i++)
-                {
-                    Console.WriteLine(output.Rows[i]["lowercase"]);
-                    outupts[i] = output.Rows[i]["lowercase"];
-                }
-                for (int i = 0; i < inputs.Length; i++)
-                {
-                    string toLower = StringManipulator.ToLower(inputs[i]);
-                    Assert.AreEqual(toLower, outupts[i]);
-                }
+                string toLower = StringManipulator.ToLower(input.Rows[0]["anycase"]);
+                Assert.AreEqual(toLower, output.Rows[0]["lowercase"]);
             }
             else
+            {
                 Assert.Fail();
+            }
         }
     }
 }
