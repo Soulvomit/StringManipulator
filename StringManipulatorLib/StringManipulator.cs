@@ -12,14 +12,13 @@ namespace StringManipulatorLib
         /// <param name="charLength">Maximum allowed length of string. Defaults to byte.MaxValue.</param>
         /// <returns>The reversed/mirrored string.</returns>
         public static string ReverseString(string input, byte charLength = byte.MaxValue)
-        { 
+        {
             char[] stringArray = input.ToCharArray()
                                         .Take(charLength)
                                             .ToArray();
 
-            StringBuilder reversedLimited = new StringBuilder(null);
+            StringBuilder reversedLimited = new(null);
 
-            
             for (int i = stringArray.Length - 1; i >= 0; i--)
             {
                 reversedLimited.Append(stringArray[i]);
@@ -35,9 +34,9 @@ namespace StringManipulatorLib
         /// </summary>
         /// <param name="input">String to lower case.</param>
         /// <returns>Lower cased version on the input.</returns>
-        public static string ToLower(string input) 
+        public static string ToLower(string input)
         {
-            StringBuilder output = new StringBuilder(null);
+            StringBuilder output = new(null);
 
             for (int i = 0; i < input.Length; i++)
             {
@@ -55,9 +54,9 @@ namespace StringManipulatorLib
         /// </summary>
         /// <param name="input">String to upper case.</param>
         /// <returns>Upper cased version on the input.</returns>
-        public static string ToUpper(string input) 
+        public static string ToUpper(string input)
         {
-            StringBuilder output = new StringBuilder(null);
+            StringBuilder output = new(null);
 
             for (int i = 0; i < input.Length; i++)
             {
