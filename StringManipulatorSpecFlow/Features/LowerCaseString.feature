@@ -5,7 +5,7 @@ Scenario: Lowercase a string
 	Given a input string
 	| anycase   |
 	| <anycase> |
-	When enter or toLowerbutton is pressed
+	When enter or toLower button is pressed
 	Then a lowercase version of the input should be displayed
 	| lowercase   |
 	| <lowercase> |

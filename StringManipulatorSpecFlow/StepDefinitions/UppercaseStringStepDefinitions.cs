@@ -1,25 +1,21 @@
 using StringManipulatorLib;
-using System;
-using System.Reflection.PortableExecutable;
-using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 
 namespace StringManipulatorSpecFlow.StepDefinitions
 {
     [Binding]
     public class UppercaseStringStepDefinitions
     {
-        private Table? input = null;
-        private Table? output = null;
+        private Table? _input;
+        private Table? _output;
 
         [Given(@"a input string"), Scope(Feature = "Uppercase")]
         public void GivenAInputString(Table table)
         {
-            input = table;
-            Assert.AreEqual(1, input.RowCount);
+            _input = table;
+            Assert.AreEqual(1, _input.RowCount);
         }
 
-        [When(@"enter or toUpperButton is pressed")]
+        [When(@"enter or toUpper button is pressed")]
         public void WhenEnterOrToUpperButtonIsPressed()
         {
             Console.WriteLine("Enter or toUpper Button was pressed...");
@@ -28,12 +24,12 @@ namespace StringManipulatorSpecFlow.StepDefinitions
         [Then(@"a uppercase version of the input should be displayed")]
         public void ThenAUppercaseVersionOfTheInputShouldBeDisplayed(Table table)
         {
-            output = table;
-            Assert.AreEqual(1, output.RowCount);
-            if (input != null)
+            _output = table;
+            Assert.AreEqual(1, _output.RowCount);
+            if (_input != null)
             {
-                string toUpper = StringManipulator.ToUpper(input.Rows[0]["anycase"]);
-                Assert.AreEqual(toUpper, output.Rows[0]["uppercase"]);
+                string toUpper = StringManipulator.ToUpper(_input.Rows[0]["anycase"]);
+                Assert.AreEqual(toUpper, _output.Rows[0]["uppercase"]);
             }
             else
             {

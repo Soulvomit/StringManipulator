@@ -5,7 +5,7 @@ Scenario: Uppercase a string
 	Given a input string
 	| anycase   |
 	| <anycase> |
-	When enter or toUpperButton is pressed
+	When enter or toUpper button is pressed
 	Then a uppercase version of the input should be displayed
 	| uppercase   |
 	| <uppercase> |

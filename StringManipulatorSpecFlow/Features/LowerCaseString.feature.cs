@@ -127,7 +127,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("a input string", ((string)(null)), table1, "Given ");
 #line hidden
 #line 8
- testRunner.When("enter or toLowerbutton is pressed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("enter or toLower button is pressed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "lowercase"});

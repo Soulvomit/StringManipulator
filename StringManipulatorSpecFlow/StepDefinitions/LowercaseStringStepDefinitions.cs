@@ -1,24 +1,22 @@
 using StringManipulatorLib;
-using System;
-using TechTalk.SpecFlow;
 
 namespace StringManipulatorSpecFlow.StepDefinitions
 {
     [Binding]
     public class LowercaseStringStepDefinitions
     {
-        private Table? input = null;
-        private Table? output = null;
+        private Table? _input;
+        private Table? _output;
 
         [Given(@"a input string"), Scope(Feature = "Lowercase")]
         public void GivenAInputString(Table table)
         {
-            input = table;
-            Assert.AreEqual(1, input.RowCount);
+            _input = table;
+            Assert.AreEqual(1, _input.RowCount);
         }
 
-        [When(@"enter or toLowerbutton is pressed")]
-        public void WhenEnterOrToLowerbuttonIsPressed()
+        [When(@"enter or toLower button is pressed")]
+        public void WhenEnterOrToLowerButtonIsPressed()
         {
             Console.WriteLine("Enter or toLower Button was pressed...");
         }
@@ -26,13 +24,13 @@ namespace StringManipulatorSpecFlow.StepDefinitions
         [Then(@"a lowercase version of the input should be displayed")]
         public void ThenALowercaseVersionOfTheInputShouldBeDisplayed(Table table)
         {
-            output = table;
-            Assert.AreEqual(1, output.RowCount);
+            _output = table;
+            Assert.AreEqual(1, _output.RowCount);
 
-            if (input != null)
+            if (_input != null)
             {
-                string toLower = StringManipulator.ToLower(input.Rows[0]["anycase"]);
-                Assert.AreEqual(toLower, output.Rows[0]["lowercase"]);
+                string toLower = StringManipulator.ToLower(_input.Rows[0]["anycase"]);
+                Assert.AreEqual(toLower, _output.Rows[0]["lowercase"]);
             }
             else
             {

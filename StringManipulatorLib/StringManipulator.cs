@@ -1,32 +1,35 @@
-﻿namespace StringManipulatorLib
+﻿using System.Text;
+
+namespace StringManipulatorLib
 {
-    public class StringManipulator
+    public static class StringManipulator
     {
         #region ReverseString
         /// <summary>
         /// Reverses/mirrors a given string. If the string is longer the charLength it will be cut before reversing.
         /// </summary>
         /// <param name="input">String to reverse/mirror.</param>
-        /// <param name="charLenght">Maximum allowed length of string. Defaults to byte.MaxValue.</param>
+        /// <param name="charLength">Maximum allowed length of string. Defaults to byte.MaxValue.</param>
         /// <returns>The reversed/mirrored string.</returns>
-        public static string ReverseString(string input, byte charLenght = byte.MaxValue)
+        public static string ReverseString(string input, byte charLength = byte.MaxValue)
         { 
             char[] stringArray = input.ToCharArray()
-                                        .Take(charLenght)
+                                        .Take(charLength)
                                             .ToArray();
 
-            string reversed_limited = string.Empty;
+            StringBuilder reversedLimited = new StringBuilder(null);
 
+            
             for (int i = stringArray.Length - 1; i >= 0; i--)
             {
-                reversed_limited += stringArray[i];
+                reversedLimited.Append(stringArray[i]);
             }
 
-            return reversed_limited;
+            return reversedLimited.ToString();
         }
         #endregion
 
-        #region ToLowerUpperCase
+        #region ToLowerAndUpperCase
         /// <summary>
         /// Converts english alphabet to lower case.
         /// </summary>
@@ -34,17 +37,18 @@
         /// <returns>Lower cased version on the input.</returns>
         public static string ToLower(string input) 
         {
-            String output = "";
+            StringBuilder output = new StringBuilder(null);
+
             for (int i = 0; i < input.Length; i++)
             {
                 if (input[i] >= 'A' && input[i] <= 'Z')
                 {
-                    output += (char)(input[i] - 'A' + 'a');
+                    output.Append((char)(input[i] - 'A' + 'a'));
                 }
                 else
-                    output += input[i];
+                    output.Append(input[i]);
             }
-            return output;
+            return output.ToString();
         }
         /// <summary>
         /// Converts english alphabet to upper case.
@@ -53,17 +57,18 @@
         /// <returns>Upper cased version on the input.</returns>
         public static string ToUpper(string input) 
         {
-            String output = "";
+            StringBuilder output = new StringBuilder(null);
+
             for (int i = 0; i < input.Length; i++)
             {
                 if (input[i] >= 'a' && input[i] <= 'z')
                 {
-                    output += (char)(input[i] - 'a' + 'A');
+                    output.Append((char)(input[i] - 'a' + 'A'));
                 }
                 else
-                    output += input[i];
+                    output.Append(input[i]);
             }
-            return output;
+            return output.ToString();
         }
         #endregion
     }

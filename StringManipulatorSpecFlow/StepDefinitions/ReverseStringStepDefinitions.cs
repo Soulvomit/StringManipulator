@@ -1,21 +1,19 @@
 using StringManipulatorLib;
-using System;
-using TechTalk.SpecFlow;
 
 namespace StringManipulatorSpecFlow.StepDefinitions
 {
     [Binding]
     public class ReverseStringStepDefinitions
     {
-        private Table? input = null;
-        private Table? output = null;
-        private Table? maxChars = null;
+        private Table? _input;
+        private Table? _output;
+        private Table? _maxChars;
 
         [Given(@"a string")]
         public void GivenAString(Table table)
         {
-            input = table;
-            Assert.AreEqual(1, input.RowCount);
+            _input = table;
+            Assert.AreEqual(1, _input.RowCount);
         }
 
         [When(@"enter or button is pressed")]
@@ -27,13 +25,13 @@ namespace StringManipulatorSpecFlow.StepDefinitions
         [Then(@"a mirrored version of the input should be displayed")]
         public void ThenAMirroredVersionOfTheInputShouldBeDisplayed(Table table)
         {
-            output = table;
-            Assert.AreEqual(1, output.RowCount);
+            _output = table;
+            Assert.AreEqual(1, _output.RowCount);
 
-            if (input != null)
+            if (_input != null)
             {
-                string reversed = StringManipulator.ReverseString(input.Rows[0]["input"]);
-                Assert.AreEqual(reversed, output.Rows[0]["reversed"]);
+                string reversed = StringManipulator.ReverseString(_input.Rows[0]["input"]);
+                Assert.AreEqual(_output.Rows[0]["reversed"], reversed);
             }
             else
             {
@@ -44,21 +42,21 @@ namespace StringManipulatorSpecFlow.StepDefinitions
         [When(@"the string is above character limit")]
         public void WhenTheStringIsAboveCharacterLimit(Table table)
         {
-            maxChars = table;
-            Assert.AreEqual(1, maxChars.RowCount);
+            _maxChars = table;
+            Assert.AreEqual(1, _maxChars.RowCount);
         }
 
         [Then(@"a limited and mirrored version of the string should be displayed")]
         public void ThenALimitedAndMirroredVersionOfTheStringShouldBeDisplayed(Table table)
         {
-            output = table;
-            Assert.AreEqual(1, output.RowCount);
+            _output = table;
+            Assert.AreEqual(1, _output.RowCount);
 
-            if (input != null && maxChars != null)
+            if (_input != null && _maxChars != null)
             {
-                string limited_reversed = 
-                    StringManipulator.ReverseString(input.Rows[0]["input"], byte.Parse(maxChars.Rows[0]["char_length"]));
-                Assert.AreEqual(limited_reversed, output.Rows[0]["limited_reversed"]);
+                string limitedReversed = 
+                    StringManipulator.ReverseString(_input.Rows[0]["input"], byte.Parse(_maxChars.Rows[0]["char_length"]));
+                Assert.AreEqual(_output.Rows[0]["limited_reversed"], limitedReversed);
             }
             else
             {

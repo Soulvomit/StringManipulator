@@ -127,7 +127,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("a input string", ((string)(null)), table8, "Given ");
 #line hidden
 #line 8
- testRunner.When("enter or toUpperButton is pressed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("enter or toUpper button is pressed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                             "uppercase"});
