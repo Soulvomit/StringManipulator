@@ -13,7 +13,6 @@ namespace StringManipulatorSpecFlow.StepDefinitions
         {
             _input = table;
             Assert.AreEqual(1, _input.RowCount);
-            Assert.Fail();
         }
 
         [When(@"enter or toLower button is pressed")]
