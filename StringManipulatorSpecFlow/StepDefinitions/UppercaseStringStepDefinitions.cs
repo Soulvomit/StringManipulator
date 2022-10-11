@@ -7,7 +7,7 @@ namespace StringManipulatorSpecFlow.StepDefinitions
     {
         private Table? _input;
         private Table? _output;
-
+        /**/
         [Given(@"a input string"), Scope(Feature = "Uppercase")]
         public void GivenAInputString(Table table)
         {
